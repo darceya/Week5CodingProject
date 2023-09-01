@@ -101,8 +101,8 @@ class Menu {
             let description = `Patient Name: ` + this.selectedRecord.name + `\n`;
 
             for (let i = 0; i < this.selectedRecord.records.length; i++) {
-                description += i + ') ' + this.selectedRecord.records[i].name 
-                + ' - ' + this.selectedRecord.records[i].date + '\n';
+                description += i + ') ' + this.selectedRecord.records[i].type 
+                + ' - ' + this.selectedRecord.records[i].location + '\n';
             }
 
             let selection = this.showPatientMenuOptions(description);
@@ -139,8 +139,8 @@ class Menu {
 
     deleteRecord() {
         let index = prompt(`Enter the index of the record you wish to delete:`);
-        if (index > -1 && index < this.selectedPatient.records.length) {
-            this.selectedPatient.records.splice(index, 1);
+        if (index > -1 && index < this.selectedRecord.records.length) {
+            this.selectedRecord.records.splice(index, 1);
         }
     }
 
