@@ -1,3 +1,10 @@
+
+/* Week 5 Project - Include at least two classes and one array.
+
+Patients and Records classes with an array of patient records. 
+
+*/
+
 class Record {
     constructor(type, location) {
         this.type = type;
@@ -9,6 +16,8 @@ class Record {
     }
 
 }
+/* Record class with constructor that gives the class its properties. Properties include a record type (could be such as 
+xray, diagnostics, etc) and a location of where it occurred. */
 
 class Patient {
     constructor(name) {
@@ -27,6 +36,9 @@ class Patient {
         return `${this.name} has ${this.records.length} records.`; 
     }
 }
+
+/* Patient class with constructor that gives the class its properties. Property includes patient name. An array 
+is added so all patient records can be listed. */ 
 
 class Menu {
     constructor() {
@@ -61,6 +73,10 @@ class Menu {
         alert('Thank you for using this healthcare system!');
     }
 
+
+/* This method starts the prompt/menu app. It shows the main menu. */ 
+
+
     showMainMenuOptions() {
         return prompt(`
         0) exit
@@ -88,11 +104,16 @@ class Menu {
         }
         alert(patientString);
     }
+/* This method displays all the patients in the system. */
+
 
     createPatient() {
         let name = prompt(`Enter name for new Patient`);
         this.records.push(new Patient(name)); 
     }
+
+/* This method allows the user to select a menu prompt to create a new patient. Each new patient gets added to the list. */
+
 
     viewPatient() {
         let index = prompt(`Enter the index of the Patient you wish to view:`);
@@ -115,6 +136,11 @@ class Menu {
             }
         }
     }
+
+    /* Selection allows users to view a patient record and then see additional prompt/menu items to create or 
+    delete an associated record. */
+
+
     deletePatient() {
         let index = prompt(`Enter the index of the Patient you wish to delete:`);
         if (index > -1 && index < this.records.length) {
@@ -122,20 +148,14 @@ class Menu {
         }
      }
     
-
+    
     createRecord() {
         let type = prompt(`Enter type of medical record:`); 
         let location = prompt(`Enter location of medical procedure on record`);
         this.selectedRecord.records.push(new Record(type, location)); 
     }
 
-    /*createRecord() {
-        let type = prompt(`Enter type of medical record:`);
-        let location = prompt(`Enter location of medical procedure on record:`);
-        const newRecord = new Record(type, location);
-        this.selectedRecord.records.push(newRecord);
-
-    } */
+      /* Upon viewing a patient record, a user then has to option to create an associated record. */
 
     deleteRecord() {
         let index = prompt(`Enter the index of the record you wish to delete:`);
@@ -144,6 +164,7 @@ class Menu {
         }
     }
 
+      /* Upon viewing a patient record, a user then has to option to delete an associated record. */
 
 }
 
